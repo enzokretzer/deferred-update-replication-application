@@ -36,30 +36,30 @@ services:
     environment:
       REPLICA_ID: r1
       DATABASE_URL: postgres://dur:dur@db1:5432/dur
-      SEQUENCER_ADDR: sequencer:9000
+      SEQUENCER_ADDR: sequenciador:9000
     ports: ["8001:8000"]
     depends_on:
       db1: { condition: service_healthy }
-      sequencer: { condition: service_started }
+      sequenciador: { condition: service_started }
 
   replica2:
     build: ./replica
     environment:
       REPLICA_ID: r2
       DATABASE_URL: postgres://dur:dur@db2:5432/dur
-      SEQUENCER_ADDR: sequencer:9000
+      SEQUENCER_ADDR: sequenciador:9000
     ports: ["8002:8000"]
     depends_on:
       db2: { condition: service_healthy }
-      sequencer: { condition: service_started }
+      sequenciador: { condition: service_started }
 
   replica3:
     build: ./replica
     environment:
       REPLICA_ID: r3
       DATABASE_URL: postgres://dur:dur@db3:5432/dur
-      SEQUENCER_ADDR: sequencer:9000
+      SEQUENCER_ADDR: sequenciador:9000
     ports: ["8003:8000"]
     depends_on:
       db3: { condition: service_healthy }
-      sequencer: { condition: service_started }
+      sequenciador: { condition: service_started }
